@@ -1,23 +1,14 @@
 import React from 'react'
 import styled from 'styled-components'
+
+const AUTH_URL = "client_id=1de09f7c61e740c9a221d4d20a9bdf91=&response_type=code&redirect_uri=http://localhost:3000&scope=streaming%20user-read-email%20user-read-private%20user-library-modify%20user-library-read%20user-read-playback-state%20user-modify-playback-state";
+
 const handleClick = () => {
-    const clientId = "1de09f7c61e740c9a221d4d20a9bdf91";
-    const reDirectUri = "http://localhost:3000/";
-    const apiUri = "https://accounts.spotify.com/authorize";
-    const scope = [
-        "user-read-email",
-        "user-read-private",
-        "user-modify-playback-state", 
-        "user-read-playback-state",
-        "user-read-currently-playing", 
-        "user-read-recently-played",
-        "user-read-playback-position",
-        "user-top-read"
-    ];
-    window.location.href = `${apiUri}?client_id= ${clientId}&redirect_uri=${reDirectUri}&scope=${scope.join(" ")}&response_type=token&show_dialog=true`;
+    window.location.href = "/login?" + AUTH_URL;
 }
 export default function Login() {
   return (
+    
     <Container>
         <img src="https://storage.googleapis.com/pr-newsroom-wp/1/2018/11/Spotify_Logo_CMYK_Black.png" alt = "spotify"></img>
         <button onClick={handleClick}>Connect Spotify</button>
