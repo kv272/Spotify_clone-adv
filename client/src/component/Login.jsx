@@ -5,24 +5,22 @@ const handleClick = () => {
     const reDirectUri = "http://localhost:3000/";
     const apiUri = "https://accounts.spotify.com/authorize";
     const scope = [
-        "user-read-private", 
         "user-read-email",
+        "user-read-private",
         "user-modify-playback-state", 
-        "user-read-playback-site",
+        "user-read-playback-state",
         "user-read-currently-playing", 
+        "user-read-recently-played",
         "user-read-playback-position",
-        "user-top-read",
-        "user-read-recently-played"
+        "user-top-read"
     ];
-    window.location.href = `${apiUri}?client_id= ${clientId}&redirect_uri=${reDirectUri}&scope=${scope.join(
-        "%20"
-        )}&response_type=token&show_dialog=true`;
+    window.location.href = `${apiUri}?client_id= ${clientId}&redirect_uri=${reDirectUri}&scope=${scope.join(" ")}&response_type=token&show_dialog=true`;
 }
 export default function Login() {
   return (
     <Container>
-        <img src="https://storage.googleapis.com/pr-newsroom-wp/1/2018/11/Spotify_Logo_CMYK_Black.png" alt =" spotify"></img>
-        <button onClick={handleClick}> Connect Spotify</button>
+        <img src="https://storage.googleapis.com/pr-newsroom-wp/1/2018/11/Spotify_Logo_CMYK_Black.png" alt = "spotify"></img>
+        <button onClick={handleClick}>Connect Spotify</button>
     </Container>
   )
 }
